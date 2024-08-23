@@ -13,7 +13,7 @@ class Major(val name: String, val students: ArrayList<Student> = arrayListOf()) 
         val averages: List<Double> = if (courseName.isEmpty()) {
             students.map { it.weightedAverage() }
         } else {
-            students.
+            students.map { it.courses.first { it.name == courseName }.grade }
         }
 
         return Triple(averages.min(), averages.max(), averages.average())
